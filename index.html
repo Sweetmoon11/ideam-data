@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Estaciones - Colombia</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <h1>Monitoreo Hidrológico de Colombia</h1>
+
+    <div class="controles">
+        <label for="buscador">Buscar Estación:</label>
+        <input type="text" id="buscador" list="lista-estaciones" placeholder="Escribe el nombre de la estación...">
+        <datalist id="lista-estaciones"></datalist>
+        
+        <button onclick="buscarPunto()">Ir a la estación</button>
+        
+        <button onclick="filtrar('ACTIVA')">Activas</button>
+        <button onclick="filtrar('SUSPENDIDA')">Suspendidas</button>
+        <button onclick="filtrar('all')">Todas</button>
+    </div>
+
+    <div id="panel-info">
+        <h3>Detalles de la Estación</h3>
+        <div id="contenido-detalle">
+            <p style="color: gray;">Selecciona una estación en el mapa o búscala arriba.</p>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
